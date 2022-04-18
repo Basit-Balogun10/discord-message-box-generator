@@ -14,8 +14,8 @@ const message = document.getElementById("message");
 
 // Change the icons inside the theme-button based on previous settings
 if (
-    localStorage.getItem("ascf-theme") === "dark" ||
-    (!("ascf-theme" in localStorage) &&
+    localStorage.getItem("dmbg-theme") === "dark" ||
+    (!("dmbg-theme" in localStorage) &&
         window.matchMedia("(prefers-color-scheme: dark)").matches)
 ) {
     themeToggleLightIcon.classList.remove("hidden");
