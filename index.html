@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins&family=Inter&display=swap" />
+    <link rel="stylesheet" href="src/css/reset.css" />
+    <link rel="stylesheet" href="src/css/globals.css" />
+</head>
+
+<body>
+    <section id="contact"
+        class="md:flex justify-center items-center p-4 dark:bg-slate-900 text-gray-800 dark:text-gray-200 flex-wrap">
+        <div class="md:flex justify-around items-center w-full flex-wrap space-y-10 text-center">
+            <section class="md:flex-1 md:max-w-[33%] text-left">
+                <h3 class="font-bold text-xl mb-4 sm:text-center">MESSAGE BOX DETAILS</h3>
+
+                <form id="message-box-form">
+                    <div class="relative z-0 mb-6 w-full group">
+                        <input id="username-input" type="name" name="floating_name"
+                            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-gray-900 focus:outline-none focus:ring-0 focus:border-gray-900/90 peer"
+                            placeholder=" " required="">
+                        <label for="floating_name"
+                            class="absolute text-xs text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-900/90 peer-focus:dark:text-lighGreen peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Username</label>
+                    </div>
+                    <div class="relative z-0 mb-6 w-full group">
+                        <input id="date-time-input" type="name" name="floating_time"
+                            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-gray-900 focus:outline-none focus:ring-0 focus:border-gray-900/90 peer"
+                            placeholder=" " required="">
+                        <label for="floating_time"
+                            class="absolute text-xs text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-900/90 peer-focus:dark:text-lighGreen peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Date/Time</label>
+                    </div>
+                    <div class="relative z-0 mb-6 w-full group">
+                        <textarea name="message" id="floating-message" type="Message" cols="30" rows="3"
+                            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-gray-900 focus:outline-none focus:ring-0 focus:border-gray-900/90 peer"
+                            placeholder=" "></textarea>
+
+                        <label for="floating_message"
+                            class="absolute text-xs text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-900/90 peer-focus:dark:text-lighGreen peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Message</label>
+                    </div>
+                    <label class="block">
+                        <span class="sr-only">Choose user profile picture</span>
+                        <input type="file"  id="profile-picture-input" accept="image/*"
+                            class="cursor-pointer block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px04 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg:violet-100" required=""/>
+                    </label>
+                    <div class="text-center"><button type="submit"
+                            class="my-4 transition-all ease-in-out font-semibold text-white dark:text-gray-800 bg-gray-900/90 focus:ring-4 focus:outline-none rounded-lg text-sm md:w-full sm:w-auto px-5 py-2.5 text-center hover:bg-gray-900 focus:ring-gray-900/80">
+                            Generate Message Box
+                        </button></div>
+                </form>
+            </section>
+        </div>
+    </section>
+
+    <section id="message-box" class="hidden justify-center items-center p-4">
+        <div class="p-4 max-w-fit bg-[#363940] md:flex justify-center items-center w-full flex-wrap text-white space-x-2">
+            <img id="profile-picture" class="h-10 w-10 rounded-full" src="" alt="User Profile Picture">
+            <section class="">
+                <div class="space-x-2 flex items-baseline">
+                    <h3 id="username" class="font-bold">Basit Balogun</h3>
+                    <p id="date-time" class="text-sm text-[0.8rem] text-gray-500">Yesterday at 4:05 PM</p>
+                </div>
+                <p id="message" class="text-sm">Lorem ipsum dolor</p>
+            </section>
+        </div>
+    </section>
+
+    <script src="src/js/index.js"></script>
+</body>
+
+</html>
