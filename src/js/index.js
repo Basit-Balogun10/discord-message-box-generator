@@ -45,7 +45,7 @@ const generateBox = (event) => {
     username.innerText = usernameInput.value;
     username.classList.add(colorClassInput.value);
     dateTime.innerText = dateTimeInput.value;
-    message.innerText = floatingMessage.value;
+    message.innerHTML = floatingMessage.value;
 };
 
 messageBoxForm.onsubmit = generateBox;
