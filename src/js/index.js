@@ -46,7 +46,7 @@ const generateBox = (event) => {
     profilePictureFile && reader.readAsDataURL(profilePictureFile);
 
     username.innerText = usernameInput.value;
-    username.classList.add(colorClassInput.value);
+    colorClassInput.value ? username.classList.add(colorClassInput.value) : username.classList.add('text-white');
     dateTime.innerText = dateTimeInput.value;
     message.innerHTML = floatingMessage.value;
 };
@@ -115,7 +115,7 @@ themeToggleBtn.addEventListener("click", toggleThemeMode);
         html2canvas(innerMessageBox, {
             onrendered: function (canvas) {
                 canvas.toBlob(function (blob) {
-                    saveAs(blob, "myScreenshot.png");
+                    saveAs(blob, `${floatingMessage.value.substring(0, 20)}_${usernameInput.value}_${dateTimeInput.value}_${colorClassInput.value ? colorClassInput.value : 'text-white'}.png`);
                 });
             },
         });

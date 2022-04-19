@@ -107,7 +107,7 @@
     </section>
 
     <section id="message-box" class="hidden dark:bg-slate-900 dark:text-gray-200 justify-center items-center p-4">
-        <div class="inner-message-box min-w-full min-w-fit p-4 max-w-fit bg-discordMain flex justify-start items-center w-full flex-wrap text-white space-x-2 flex-nowrap">
+        <div id="inner-message-box" class="min-w-full min-w-fit p-4 max-w-fit bg-discordMain flex justify-start items-center w-full flex-wrap text-white space-x-2 flex-nowrap">
             <img id="profile-picture" class="h-10 w-10 rounded-full self-start" src="" alt="User profile picture">
             <section class="">
                 <div class="space-x-2 flex items-baseline font-bold text-sm">
@@ -121,7 +121,7 @@
 
     <div id="screenshot-saver" class="text-center hidden">
         <button onclick="generate();"
-                class="my-4 transition-all ease-in-out font-semibold text-violet-700 bg-gray-900/90 bg-violet-300 focus:ring-4 focus:outline-none rounded-lg text-sm md:w-full sm:w-auto px-5 py-2.5 text-center hover:bg-violet-400 focus:ring-violet-300/80">
+                class="my-4 transition-all ease-in-out font-semibold text-violet-700 bg-gray-900/90 bg-violet-300 focus:ring-4 focus:outline-none rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center hover:bg-violet-400 focus:ring-violet-300/80">
                 Save screenshot
             </button>
         </div>
