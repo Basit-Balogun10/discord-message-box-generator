@@ -1,6 +1,11 @@
+@font-face {
+    font-family: "Poppins";
+    src: url("Poppins-Regular.ttf") format("truetype");
+}
+
 html,
 body {
-    font-family: "Poppins", "Inter", -apple-system, sans-serif;
+    font-family: "Poppins", -apple-system, sans-serif;
 }
 
 a {
