@@ -84,54 +84,14 @@ const toggleThemeMode = () => {
 
 themeToggleBtn.addEventListener("click", toggleThemeMode);
 
-(function (exports) {
-    function urlsToAbsolute(nodeList) {
-        if (!nodeList.length) {
-            return [];
-        }
-        var attrName = "href";
-        if (
-            nodeList[0].__proto__ === HTMLImageElement.prototype ||
-            nodeList[0].__proto__ === HTMLScriptElement.prototype
-        ) {
-            attrName = "src";
-        }
-        nodeList = [].map.call(nodeList, function (el, i) {
-            var attr = el.getAttribute(attrName);
-            if (!attr) {
-                return;
-            }
-            var absURL = /^(https?|data):/i.test(attr);
-            if (absURL) {
-                return el;
-            } else {
-                return el;
-            }
-        });
-        return nodeList;
-    }
+const screenshotMessageBox = () => {
+    html2canvas(innerMessageBox, {
+        onrendered: function (canvas) {
+            canvas.toBlob(function (blob) {
+                saveAs(blob, `${floatingMessage.value.substring(0, 20)}_${usernameInput.value}_${dateTimeInput.value}_${colorClassInput.value ? colorClassInput.value : 'text-white'}.png`);
+            });
+        },
+    });
+}
 
-    function screenshotPage() {
-        html2canvas(innerMessageBox, {
-            onrendered: function (canvas) {
-                canvas.toBlob(function (blob) {
-                    saveAs(blob, `${floatingMessage.value.substring(0, 20)}_${usernameInput.value}_${dateTimeInput.value}_${colorClassInput.value ? colorClassInput.value : 'text-white'}.png`);
-                });
-            },
-        });
-    }
-
-    function addOnPageLoad_() {
-        window.addEventListener("DOMContentLoaded", function (e) {
-            var scrollX = document.documentElement.dataset.scrollX || 0;
-            var scrollY = document.documentElement.dataset.scrollY || 0;
-            window.scrollTo(scrollX, scrollY);
-        });
-    }
-
-    function generate() {
-        screenshotPage();
-    }
-    exports.screenshotPage = screenshotPage;
-    exports.generate = generate;
-})(window);
+screenshotSaver.onclick = screenshotMessageBox;
