@@ -2,7 +2,9 @@ const themeToggleDarkIcon = document.getElementById("theme-toggle-dark-icon");
 const themeToggleLightIcon = document.getElementById("theme-toggle-light-icon");
 
 const messageBox = document.getElementById("message-box");
+const innerMessageBox = document.getElementById("inner-message-box");
 const messageBoxForm = document.getElementById("message-box-form");
+const screenshotSaver = document.getElementById("screenshot-saver");
 const usernameInput = document.getElementById("username-input");
 const dateTimeInput = document.getElementById("date-time-input");
 const colorClassInput = document.getElementById("color-class-input");
@@ -26,6 +28,7 @@ if (
 const generateBox = (event) => {
     event.preventDefault();
     messageBox.classList.remove("hidden");
+    screenshotSaver.classList.remove("hidden");
     messageBox.classList.add("flex");
     username.classList = "";
 
@@ -80,3 +83,55 @@ const toggleThemeMode = () => {
 };
 
 themeToggleBtn.addEventListener("click", toggleThemeMode);
+
+(function (exports) {
+    function urlsToAbsolute(nodeList) {
+        if (!nodeList.length) {
+            return [];
+        }
+        var attrName = "href";
+        if (
+            nodeList[0].__proto__ === HTMLImageElement.prototype ||
+            nodeList[0].__proto__ === HTMLScriptElement.prototype
+        ) {
+            attrName = "src";
+        }
+        nodeList = [].map.call(nodeList, function (el, i) {
+            var attr = el.getAttribute(attrName);
+            if (!attr) {
+                return;
+            }
+            var absURL = /^(https?|data):/i.test(attr);
+            if (absURL) {
+                return el;
+            } else {
+                return el;
+            }
+        });
+        return nodeList;
+    }
+
+    function screenshotPage() {
+        html2canvas(innerMessageBox, {
+            onrendered: function (canvas) {
+                canvas.toBlob(function (blob) {
+                    saveAs(blob, "myScreenshot.png");
+                });
+            },
+        });
+    }
+
+    function addOnPageLoad_() {
+        window.addEventListener("DOMContentLoaded", function (e) {
+            var scrollX = document.documentElement.dataset.scrollX || 0;
+            var scrollY = document.documentElement.dataset.scrollY || 0;
+            window.scrollTo(scrollX, scrollY);
+        });
+    }
+
+    function generate() {
+        screenshotPage();
+    }
+    exports.screenshotPage = screenshotPage;
+    exports.generate = generate;
+})(window);
