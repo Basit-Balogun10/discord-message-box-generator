@@ -38,7 +38,6 @@ const generateBox = (event) => {
     reader.addEventListener(
         "load",
         () => {
-            console.log(reader.result);
             profilePicture.src = reader.result;
         },
         false
@@ -85,12 +84,8 @@ const toggleThemeMode = () => {
 themeToggleBtn.addEventListener("click", toggleThemeMode);
 
 const screenshotMessageBox = () => {
-    html2canvas(innerMessageBox, {
-        onrendered: function (canvas) {
-            canvas.toBlob(function (blob) {
-                saveAs(blob, `${floatingMessage.value.substring(0, 20)}_${usernameInput.value}_${dateTimeInput.value}_${colorClassInput.value ? colorClassInput.value : 'text-white'}.png`);
-            });
-        },
+    domtoimage.toBlob(innerMessageBox).then(function (blob) {
+        saveAs(blob, `${floatingMessage.value.substring(0, 20)}_${usernameInput.value}_${dateTimeInput.value}_${colorClassInput.value ? colorClassInput.value : 'text-white'}.png`);
     });
 }
 
